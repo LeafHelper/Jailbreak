@@ -1,0 +1,10 @@
+local gmt = getrawmetatalbe(game)
+        local oldIndex = gmt.__index
+        setreadonly(gmt,false)
+        
+       gmt.__index = newcclosure(function(Self,Key)
+         if tostring(Self) == "Humanoid" and tostring(Key) == "Walkspeed" then
+           return
+      end
+    return oldIndex(Self,Key)
+end)
